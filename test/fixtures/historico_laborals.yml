@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome_identificador: MyString
+  empregador: one
+  pessoa_fisica: one
+  documento: one
+  anos: 1
+  meses: 1
+  dias: 1
+
+two:
+  nome_identificador: MyString
+  empregador: two
+  pessoa_fisica: two
+  documento: two
+  anos: 1
+  meses: 1
+  dias: 1

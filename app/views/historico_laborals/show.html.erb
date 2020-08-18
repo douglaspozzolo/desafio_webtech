@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome identificador:</strong>
+  <%= @historico_laboral.nome_identificador %>
+</p>
+
+<p>
+  <strong>Empregador:</strong>
+  <%= @historico_laboral.empregador.nome %>
+</p>
+
+<p>
+  <strong>Pessoa fisica:</strong>
+  <%= @historico_laboral.pessoa_fisica.nome %>
+</p>
+
+<p>
+  <strong>Documento:</strong>
+  <%= @historico_laboral.documento.nome %>
+</p>
+
+<p>
+  <strong>Anos:</strong>
+  <%= @historico_laboral.anos %>
+</p>
+
+<p>
+  <strong>Meses:</strong>
+  <%= @historico_laboral.meses %>
+</p>
+
+<p>
+  <strong>Dias:</strong>
+  <%= @historico_laboral.dias %>
+</p>
+
+
+<%= link_to 'Edit', edit_historico_laboral_path(@historico_laboral) %> |
+<%= link_to 'Back', historico_laborals_path %>

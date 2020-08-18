@@ -1,0 +1,33 @@
+<%= form_with(model: documento, local: true) do |form| %>
+  <% if documento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(documento.errors.count, "error") %> prohibited this documento from being saved:</h2>
+
+      <ul>
+      <% documento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, class: "form-control", required: true %>
+  </div>
+  <small>Selecione um arquivo no formato PDF</small>
+
+  <div class="custom-file">
+    <%=form.label :doc, class: "custom-file-input" %>
+    <%=form.file_field :doc , class:"custom-file-label", style: 'width:100%' %>
+
+  </div>
+<!--  <div class="field">-->
+    <%#=form.label :pessoa_fisica_id %>
+    <%#= form.select("pessoa_fisica_id",@pessoa_fisica_options, {include_blank: "Selecione"}) %>
+<!--  </div>-->
+  <div class="actions" style="padding-top: 15px">
+    <%= link_to 'Voltar', documentos_path, class:"btn btn-light"%>
+    <%= form.submit "Salvar", class:"btn btn-success", style: 'float:right' %>
+  </div>
+<% end %>

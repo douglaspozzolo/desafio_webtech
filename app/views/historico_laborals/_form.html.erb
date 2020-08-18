@@ -1,0 +1,123 @@
+<%= form_with(model: historico_laboral, local: true) do |form| %>
+  <% if historico_laboral.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(historico_laboral.errors.count, "error") %> prohibited this historico_laboral from being saved:</h2>
+
+      <ul>
+      <% historico_laboral.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="col-6">
+
+      <%if params[:acao] == 'docs' %>
+
+      <div class="form-group" id="documento-field">
+        <%= form.label :documento_id %>
+        <%= form.select("documento_id",@documento_pessoa, {selected: params[:documento_id]}, class:'custom-select')%>
+      </div>
+      <%else  %>
+        <div class="form-group" id="documento-field">
+          <%= form.label :documento_id %>
+          <%= form.select("documento_id",@documento_pessoa, {include_blank: "Selecione"} , class:'custom-select', onchange: 'carregarDoc()', required: true )  %>
+        </div>
+      <%end %>
+      <div class="form-group">
+        <%= form.label :nome_identificador, 'Nome Identificador do Histórico' %>
+        <%= form.text_field :nome_identificador, class: "form-control", required: true  %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :pessoa_fisica_id %>
+        <%= form.select("pessoa_fisica_id",@pessoa_fisica_options, {include_blank: "Selecione"} , class:'custom-select', required: true)  %>
+      </div>
+      <div class="form-group">
+        <%= form.label :empregador_id %>
+        <%= form.select("empregador_id",@empregador_options, {include_blank: "Selecione"}, class:'custom-select', required: true ) %>
+      </div>
+
+
+    <div class="row">
+      <div class="form-group col-4">
+        <%= form.label :anos %>
+        <%= form.number_field :anos, class: "form-control", required: true  %>
+      </div>
+
+      <div class="form-group col-4">
+        <%= form.label :meses %>
+        <%= form.number_field :meses, class: "form-control", required: true  %>
+      </div>
+
+      <div class="form-group col-4">
+        <%= form.label :dias %>
+        <%= form.number_field :dias, class: "form-control", required: true  %>
+      </div>
+    </div>
+    <%if params[:action] == 'edit' %>
+      <div class="actions" id="btn-salvar" hidden>
+        <%= form.submit "Salvar", class:"btn btn-success", id: 'botao-salvar'%>
+      </div>
+    <%else %>
+      <div class="actions" id="btn-salvar">
+        <%= link_to 'Voltar', historico_laborals_path, class:"btn btn-light"%>
+
+        <%= form.submit "Salvar", class:"btn btn-success", style: 'float:right'%>
+      </div>
+    <%end %>
+<!--    <div class="actions">-->
+      <%#= link_to 'Voltar', historico_laborals_path, class:"btn btn-light" %>
+      <%#= form.submit "Salvar", class:"btn btn-success", style: 'float:right', onclick: 'salvarDoc()' %>
+<!--    </div>-->
+<% end %>
+
+  </div>
+  <div class="col-6">
+    <%if params[:acao] == 'docs' %>
+      <iframe src=<%= url_for(Documento.find(params[:documento_id]).doc)%> width="700" height="600" style="border: none;"> </iframe>
+    <%elsif params[:action]=='edit' %>
+      <iframe src=<%= url_for(HistoricoLaboral.find(params[:id]).documento.doc)%> width="700" height="600" style="border: none;"> </iframe>
+    <%end %>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  function carregarDoc(){
+     return $('#historico_laboral_documento_id').val()
+  }
+</script>
+<!--<script type="text/javascript" charset="utf-8">-->
+<!--  function mostraDocs(teste){-->
+<!--      $('#documento-field').attr("hidden", false)-->
+<!--      console.log(teste[1])-->
+<!--  }-->
+<!--</script>-->
+<!--<script type="text/javascript" charset="utf-8">-->
+<!--  var docs = new Array();-->
+  <%# for doc in @documento_pessoa %>
+<!--  docs.push(new Array(<%#=doc[1] %>,'<%#= doc[0] %>', <%#=doc[2] %>));-->
+  <%#end %>
+
+<!--  function pessoaSelected() {-->
+<!--      pessoa_id = $('#historico_laboral_pessoa_fisica_id').val();-->
+<!--      options = $('historico_laboral_documento_id').options;-->
+<!--      docs.forEach(function(doc) {-->
+<!--          if (doc[0] == pessoa_id) {-->
+<!--              options[options.length] = new Option(doc[1], doc[2]);-->
+<!--          }-->
+<!--      });-->
+<!--      if (options.length == 1) {-->
+<!--          $('#documento-field').hide();-->
+<!--      } else {-->
+<!--          $('#documento-field').show();-->
+<!--      }-->
+<!--  }-->
+
+<!--  $( document ).ready(function() {-->
+<!--      pessoaSelected();-->
+<!--      $('#documento-field').hide();-->
+<!--      $('#historico_laboral_pessoa_fisica_id').observe('change', pessoaSelected);-->
+<!--  });-->
+<!--</script>-->

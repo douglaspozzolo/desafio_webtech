@@ -1,0 +1,24 @@
+<% flash.each do |key, value| %>
+  <div class="<%= flash_class(key) %>">
+    <%= value %>
+  </div>
+<% end %>
+<br>
+<div class="jumbotron">
+  <h1 class="display-4">Desafio Webtech</h1>
+  <p class="lead">Essa aplicação permite a criação de Históricos Laborais a Segurados da Previdencia Social.</p>
+  <hr class="my-4">
+  <p> Abaixo poderão ser registrados cada um dos elementos necessários para a criação do Histórico.</p>
+
+
+        <%= link_to 'Segurados', pessoa_fisicas_path, class: "btn btn-desafio btn-lg"%>
+
+        <%=link_to 'Empregadores', empregadors_path , class: "btn btn-desafio btn-lg"%>
+
+        <%=link_to 'Documentos', documentos_path, class: "btn btn-desafio btn-lg"%>
+
+        <%=link_to 'Cadastro de Históricos Laborais', historico_laborals_path, class: "btn btn-desafio btn-lg"%>
+ </div>
+<style>
+
+</style>

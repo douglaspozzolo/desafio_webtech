@@ -1,0 +1,21 @@
+<h1>Documento</h1>
+
+<div class="row">
+  <div class="col-6">
+    <strong>Nome:</strong>
+    <%= @documento.nome %>
+  </div>
+  <div class="col-6">
+    <%= link_to 'Abrir em nova aba', @documento.doc, target: :_blank , class: 'btn btn-info', style:'float:right'%>
+
+
+  </div>
+</div>
+
+<div align="center">
+  <iframe src=<%= url_for(@documento.doc)%> width="1000" height="640" style="border: none;"> </iframe>
+</div>
+<%= link_to 'Editar', edit_documento_path(@documento), class: 'btn btn-primary', style:'float:right' %>
+<%= link_to 'Voltar', documentos_path, class: 'btn btn-light', style:'float:left' %>
+
+

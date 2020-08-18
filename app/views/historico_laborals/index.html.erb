@@ -1,0 +1,46 @@
+<% flash.each do |key, value| %>
+  <div class="<%= flash_class(key) %>">
+    <%= value %>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-10">
+    <h1>Históricos Laborais</h1>
+  </div>
+  <div class="col-2">
+    <%= link_to 'Novo Histórico Laboral', new_historico_laboral_path, class:"btn btn-desafio"  %>
+  </div>
+</div>
+
+
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Nome identificador</th>
+      <th>Empregador</th>
+      <th>Segurado</th>
+      <th>Documento</th>
+      <th>Dias</th>
+      <th colspan="3"> Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @historico_laborals.each do |historico_laboral| %>
+      <tr>
+        <td><%= historico_laboral.nome_identificador %></td>
+        <td><%= historico_laboral.empregador.nome %></td>
+        <td><%= historico_laboral.pessoa_fisica.nome %></td>
+        <td><%= historico_laboral.documento.nome %></td>
+        <td><%= (historico_laboral.anos)*365 + (historico_laboral.meses)*30 + (historico_laboral.dias)  %></td>
+<!--        <td><%#= link_to 'Visualizar', historico_laboral %></td>-->
+        <td><%= link_to 'Visualizar', edit_historico_laboral_path(historico_laboral) %></td>
+        <td><%= link_to 'Excluir', historico_laboral, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Voltar',root_path, class:"btn btn-light" %>

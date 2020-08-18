@@ -1,0 +1,44 @@
+<% flash.each do |key, value| %>
+  <div class="<%= flash_class(key) %>">
+    <%= value %>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-10">
+    <h1>Segurados</h1>
+  </div>
+  <div class="col-2">
+    <%= link_to 'Novo Segurado', new_pessoa_fisica_path, class:"btn btn-desafio", style: 'float:right' %>
+  </div>
+
+</div>
+
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th>CPF</th>
+      <th>Nome da mãe</th>
+      <th>NIT</th>
+      <th colspan="3"> Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pessoa_fisicas.each do |pessoa_fisica| %>
+      <tr>
+        <td><%= pessoa_fisica.nome %></td>
+        <td><%= pessoa_fisica.cpf %></td>
+        <td><%= pessoa_fisica.nome_da_mae %></td>
+        <td><%= pessoa_fisica.nit %></td>
+<!--        <td><%#= link_to 'Visualizar', pessoa_fisica %></td>-->
+        <td><%= link_to 'Visualizar', edit_pessoa_fisica_path(pessoa_fisica) %></td>
+        <td><%= link_to 'Excluir', pessoa_fisica, method: :delete, data: { confirm: 'Tem certeza que deseja excluir o segurado?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Voltar', root_path, class:"btn btn-light" %>

@@ -1,0 +1,49 @@
+  <%= form_with(model: pessoa_fisica, local: true) do |form| %>
+  <% if pessoa_fisica.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pessoa_fisica.errors.count, "error") %> prohibited this pessoa_fisica from being saved:</h2>
+
+      <ul>
+      <% pessoa_fisica.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+
+  <div class="form-group col-7">
+      <%= form.label :nome %>
+      <%= form.text_field :nome, class: "form-control", required: true %>
+  </div>
+  <div class="form-group col-5">
+    <%= form.label :cpf, 'CPF' %>
+    <%= form.text_field :cpf, class: "form-control", required: true  %>
+  </div>
+
+</div>
+<div class="row">
+  <div class="form-group col-7">
+    <%= form.label :nome_da_mae, 'Nome da mãe' %>
+    <%= form.text_field :nome_da_mae, class: "form-control", required: true  %>
+  </div>
+
+  <div class="form-group col-5">
+    <%= form.label :nit, 'NIT' %>
+    <%= form.text_field :nit, class: "form-control", required: true  %>
+  </div>
+</div>
+
+     <%if params[:action] == 'edit' %>
+        <div class="actions" id="btn-salvar" hidden>
+          <%= form.submit "Salvar", class:"btn btn-success", id: 'botao-salvar'%>
+        </div>
+      <%else %>
+        <div class="actions" id="btn-salvar">
+          <%= link_to 'Voltar', pessoa_fisicas_path, class:"btn btn-light"%>
+
+          <%= form.submit "Salvar", class:"btn btn-success", style: 'float:right'%>
+        </div>
+      <%end %>
+
+  <% end %>

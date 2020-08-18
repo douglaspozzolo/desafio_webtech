@@ -1,0 +1,37 @@
+<%= form_with(model: empregador, local: true) do |form| %>
+  <% if empregador.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(empregador.errors.count, "error") %> prohibited this empregador from being saved:</h2>
+
+      <ul>
+      <% empregador.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="form-group col-7">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group col-5">
+    <%= form.label :cnpj, 'CNPJ' %>
+    <%= form.text_field :cnpj, class: "form-control", required: true %>
+  </div>
+</div>
+
+
+  <%if params[:action] == 'edit' %>
+    <div class="actions" id="btn-salvar" hidden>
+      <%= form.submit "Salvar", class:"btn btn-success", id: 'botao-salvar'%>
+    </div>
+  <%else %>
+    <div class="actions" id="btn-salvar">
+      <%= link_to 'Voltar', empregadors_path, class:"btn btn-light"%>
+
+      <%= form.submit "Salvar", class:"btn btn-success", style: 'float:right'%>
+    </div>
+  <%end %>
+<% end %>

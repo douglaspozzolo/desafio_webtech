@@ -1,0 +1,22 @@
+<h1>Segurado</h1>
+<fieldset id='formulario' disabled>
+  <%= render 'form', pessoa_fisica: @pessoa_fisica %>
+</fieldset>
+
+<div>
+  <div style="float: right">
+    <button id='btn-cancelar' onclick="cancelar()" class="btn btn-danger" hidden>
+    Cancelar
+  </button>
+    <button class="btn btn-success" hidden id='btn-salvar2' onclick="salvar()">
+      Salvar
+    </button>
+    <button class="btn btn-info" id='btn-editar' onclick="editar()">
+      Editar
+    </button>
+
+  </div>
+
+  <%= link_to 'Voltar', pessoa_fisicas_path, class:"btn btn-light"%>
+</div>
+<% javascript_include_tag 'formulario.js'%>

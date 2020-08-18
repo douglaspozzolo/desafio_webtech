@@ -1,0 +1,27 @@
+<h1>Histórico Laboral</h1>
+<fieldset id='formulario' disabled>
+  <%= render 'form', historico_laboral: @historico_laboral %>
+</fieldset>
+
+<div style="margin-top: -10px">
+    <div class="row">
+      <div class="col-3">
+        <%= link_to 'Voltar', historico_laborals_path, class:"btn btn-light"%>
+      </div>
+      <div class="col-3" style="float: right">
+        <button class="btn btn-success" hidden id='btn-salvar2' onclick="salvar()" style="float: right; margin-left: 4px">
+        Salvar
+      </button>
+        <button id='btn-cancelar' onclick="cancelar()" class="btn btn-danger" hidden style="float: right">
+          Cancelar
+        </button>
+        <button class="btn btn-info" id='btn-editar' onclick="editar()" style="float: right">
+          Editar
+        </button>
+      </div>
+      <div class="col-6">
+
+      </div>
+    </div>
+  </div>
+<% javascript_include_tag 'formulario.js'%>

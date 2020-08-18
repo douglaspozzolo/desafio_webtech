@@ -1,0 +1,39 @@
+<% flash.each do |key, value| %>
+  <div class="<%= flash_class(key) %>">
+    <%= value %>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-10">
+    <h1>Documentos</h1>
+  </div>
+  <div class="col-2">
+    <%= link_to 'Novo Documento', new_documento_path, class:"btn btn-desafio", style:'float:right'  %>
+  </div>
+</div>
+
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th colspan="3"> Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @documentos.each do |documento| %>
+      <tr>
+        <td><%= documento.nome %></td>
+        <td><%= link_to 'Visualizar', documento %></td>
+        <td><%= link_to 'Editar', edit_documento_path(documento) %></td>
+        <td><%= link_to 'Excluir', documento, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to 'Voltar',root_path, class:"btn btn-light" %>

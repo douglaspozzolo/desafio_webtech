@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @empregador.nome %>
+</p>
+
+<p>
+  <strong>Cnpj:</strong>
+  <%= @empregador.cnpj %>
+</p>
+
+<%= link_to 'Edit', edit_empregador_path(@empregador) %> |
+<%= link_to 'Back', empregadors_path %>
