@@ -13,10 +13,8 @@
  * require_tree .
  *= require_self
  *= require bootstrap/dist/css/bootstrap
-//require @fortawesome/fontawesome-free/webfonts
- *= require @fortawesome/fontawesome-free/scss/fontawesome
- *= require @fortawesome/fontawesome-free/scss/solid
- *= require @fortawesome/fontawesome-free/scss/regular
- *= require @fortawesome/fontawesome-free/scss/brands
- *= require @fortawesome/fontawesome-free/scss/v4-shims
+ *= require font-awesome
+@import "font-awesome";
  */
+
+

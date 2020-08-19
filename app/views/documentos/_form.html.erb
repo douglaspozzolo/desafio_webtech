@@ -27,7 +27,9 @@
     <%#= form.select("pessoa_fisica_id",@pessoa_fisica_options, {include_blank: "Selecione"}) %>
 <!--  </div>-->
   <div class="actions" style="padding-top: 15px">
-    <%= link_to 'Voltar', documentos_path, class:"btn btn-light"%>
+    <%= link_to 'Voltar', documentos_path , class:"btn btn-light"%>
+<!--      <i class="fa fa-arrow-left">Voltar</i>-->
+      <%#end %>
     <%= form.submit "Salvar", class:"btn btn-success", style: 'float:right' %>
   </div>
 <% end %>

@@ -26,7 +26,7 @@
       <tr>
         <td><%= documento.nome %></td>
         <td><%= link_to 'Visualizar', documento %></td>
-        <td><%= link_to 'Editar', edit_documento_path(documento) %></td>
+<!--        <td><%#= link_to 'Editar', edit_documento_path(documento) %></td>-->
         <td><%= link_to 'Excluir', documento, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
       </tr>
     <% end %>

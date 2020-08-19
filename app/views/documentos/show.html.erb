@@ -13,9 +13,9 @@
 </div>
 
 <div align="center">
-  <iframe src=<%= url_for(@documento.doc)%> width="1000" height="640" style="border: none;"> </iframe>
+  <iframe src=<%= url_for(@documento.doc)%> width="900" height="600" style="border: none;"> </iframe>
 </div>
-<%= link_to 'Editar', edit_documento_path(@documento), class: 'btn btn-primary', style:'float:right' %>
+<%= link_to 'Alterar Documento', edit_documento_path(@documento), class: 'btn btn-primary', style:'float:right' %>
 <%= link_to 'Voltar', documentos_path, class: 'btn btn-light', style:'float:left' %>
 
 

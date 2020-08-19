@@ -1,24 +1,16 @@
 # README
+Criado com : 
+* Ruby 2.6.3p62
+* Rails 5.2.4.3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Para utilizar a primeira vez e com o ruby e o rails instalado, utilize o comando a seguir no diretório em que a aplicação foi baixada
 
-Things you may want to cover:
+* bundle
 
-* Ruby version
+Utilize o comando a seguir para gerar o banco e utilizar os migrates, entre eles, o usuário padrão para obter acesso a aplicação.
 
-* System dependencies
+* rails dev:setup 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Com o usuário padrão configurado e após subir a aplicação, as credenciais de usuário são: 
+* login: usuario@desafiowebtech.com
+* senha: 123456

@@ -16,7 +16,7 @@ namespace :dev do
     end
 
   end
-  desc "Adiciona usuário padrão"
+  desc "Adiciona o usuário padrão"
   task add_defaut_user: :environment do
     User.create!(email: 'usuario@desafiowebtech.com',
                  password: 123456,
