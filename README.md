@@ -6,6 +6,7 @@ Criado com :
 Para utilizar a primeira vez e com o ruby e o rails instalado, utilize o comando a seguir no diretório em que a aplicação foi baixada
 
 * bundle
+* yarn install
 
 Utilize o comando a seguir para gerar o banco e utilizar os migrates, entre eles, o usuário padrão para obter acesso a aplicação.
 
