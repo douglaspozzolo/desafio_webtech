@@ -15,3 +15,6 @@ Utilize o comando a seguir para gerar o banco e utilizar os migrates, entre eles
 Com o usuário padrão configurado e após subir a aplicação, as credenciais de usuário são: 
 * login: usuario@desafiowebtech.com
 * senha: 123456
+
+A aplicação se encontra disponível em produção no seguinte link:
+https://obscure-falls-51265.herokuapp.com/
